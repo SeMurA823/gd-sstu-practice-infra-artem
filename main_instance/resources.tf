@@ -1,3 +1,9 @@
+
+
+// Deplecated, because autoscaling group is used
+
+
+/*
 resource "aws_instance" "app_instance" {
     ami = "${var.ami}"
     iam_instance_profile = "${var.iam_instance_profile}"
@@ -9,7 +15,7 @@ resource "aws_instance" "app_instance" {
         Name = "Application instance"
     }   
 }
-
+*/
 resource "aws_security_group" "app_sg" {
     vpc_id = "${var.vpc_id}"
     name = "${var.name}"
