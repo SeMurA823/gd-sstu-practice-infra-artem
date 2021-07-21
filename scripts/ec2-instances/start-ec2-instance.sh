@@ -25,7 +25,7 @@ sudo apt -y install pip
 pip3 install -r /home/ubuntu/instance-scripts/requirements.txt
 
 # Get latest tag and deploy
-latestTag=$(aws ecr list-images --repository-name ecr-repo --query 'imageIds[*].imageTag' --output text --region us-east-1 | python3 /home/ubuntu/instance-scripts/latestTag.py)
+latestTag=$(python3 /home/ubuntu/instance-scripts/latestTag.py)
 /home/ubuntu/instance-scripts/deploy.sh $latestTag
 
 
