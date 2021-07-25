@@ -87,12 +87,12 @@ resource "aws_elb" "app_elb" {
 resource "aws_autoscaling_group" "asg" {
     name = var.name
     availability_zones = ["us-east-1a"]
-    desired_capacity = 1
-    max_size = 2
+    desired_capacity = 2
+    max_size = 4
     min_size = 1
     load_balancers = [aws_elb.app_elb.id]
     health_check_type = "ELB"
-    health_check_grace_period = 1200
+    health_check_grace_period = 600
     launch_template {
         id = aws_launch_template.alt.id
         version = "$Latest"
