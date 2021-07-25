@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt update
 
 # Download scripts for instance and unzip
 aws s3 cp s3://191274-scripts-bucket/instance-scripts/instance-scripts.zip ./instance-scripts.zip
@@ -21,5 +22,3 @@ pip3 install -r /home/ubuntu/instance-scripts/requirements.txt
 # Get latest tag and deploy
 latestTag=$(python3 /home/ubuntu/instance-scripts/latestTag.py)
 /home/ubuntu/instance-scripts/deploy.sh $latestTag
-
-
