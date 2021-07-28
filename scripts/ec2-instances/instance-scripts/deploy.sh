@@ -1,7 +1,7 @@
 #!/bin/bash
 function deploy {
-    sudo docker stop petclinic-container
-    sudo docker rm petclinic-container
+    sudo docker stop petclinic-container | echo
+    sudo docker rm petclinic-container | echo
     sudo docker rmi $(sudo docker images -q 050376771752.dkr.ecr.us-east-1.amazonaws.com/ecr-repo)
     aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 050376771752.dkr.ecr.us-east-1.amazonaws.com
     latestTag=$1
